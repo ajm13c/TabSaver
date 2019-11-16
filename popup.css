@@ -1,0 +1,51 @@
+
+
+body {
+  background-color: rgb(182, 222, 255);
+  height: 100px;
+  width: 200px;
+}
+
+#popup {
+  display: table;
+}
+
+#saveBtn {
+  margin: 0;
+  display: table-cell;
+  border-radius: 0px;
+  height: 50px;
+  font-size: 1rem;
+}
+
+#okBtn {
+  height: 50px;
+  margin: auto;
+  display: none;
+  border-radius: 0px;
+  font-size: 1rem;
+}
+
+#openBtn {
+  height: 50px;
+  margin: auto;
+  display: table-cell;
+  border-radius: 0px;
+  font-size: 1rem;
+}
+
+#cancelBtn {
+  background-color: rgb(255, 71, 71);
+  border-color:  rgb(255, 71, 71);
+  height: 50px;
+  margin: auto;
+  display: none;
+  border-radius: 0px;
+  font-size: 1rem;
+}
+#cancelBtn:hover {
+  background-color:  rgb(200, 60, 60);
+}
+
+#sessionList > ul {
+}
