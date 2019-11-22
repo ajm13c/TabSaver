@@ -5,9 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible">
   <title>Web Research Saver</title>
-  <link rel="stylesheet" href="popup.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://kit.fontawesome.com/9b2680c976.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="popup.css">
 </head>
 <body>
   <div id="popup">
@@ -16,12 +21,39 @@
     <input id="titleInput" placeholder="Session Title" class="input-group"/>
     <button id="openBtn" class="btn btn-link btn-block">View Saved Sessions</button>
     <button id="okBtn" class="btn btn-primary btn-block">OK</button>
-    <script src="popup.js"></script>
   </div>
-  <div id="sessionList">
-    <ul>
+  <div id="sessionList" class="list-group list-group-root well">
+    <div id="sessionListMenu">
+      <button id="closeBtn" class="btn btn-danger fas fa-times"></button>
+      <h1>Saved Sessions</h1>
+    </div>
+    
+    <!-- Dynamically populate with list items -->
+    <div class="list-group-item" >
+      <i class="fas fa-box-open"></i> 
+      <span class="session-title font-weight-bold">Some Title</span>
+      <i class="fas fa-trash-alt trash-icon"></i> 
+      <i class="fas fa-eye expand-icon" data-toggle="collapse" data-target="#urlList1"></i>
+    
+      <div class="list-group url-list collapse" id="urlList1">
+          <div class="list-group-item url-item" data-toggle="collapse">
+            <i class="fas fa-copy"></i> 
+            <span class="url">https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css</span>
+          </div>
+          <div class="list-group-item url-item" data-toggle="collapse">
+            <i class="fas fa-copy"></i> 
+            <span class="url">aaaahttps://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css</span>
+          </div>
+          <div class="list-group-item url-item" data-toggle="collapse">
+            <i class="fas fa-copy"></i> 
+            <span class="url">bbbbhttps://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css</span>
+          </div>
+      </div>
 
-    </ul>
+    </div>
+
   </div>
+  
+  <script src="popup.js"></script>
 </body>
 </html>

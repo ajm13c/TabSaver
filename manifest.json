@@ -15,6 +15,6 @@
   "browser_action": {
     "default_popup": "popup.html"
   },
-  "content_security_policy": "script-src 'self' https://stackpath.bootstrapcdn.com/; object-src 'self'",
+  "content_security_policy": "script-src 'self' https://kit.fontawesome.com https://stackpath.bootstrapcdn.com/ https://ajax.googleapis.com/ https://maxcdn.bootstrapcdn.com/; object-src 'self'",
   "manifest_version": 2
 }

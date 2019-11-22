@@ -1,11 +1,50 @@
 
-let popup     = document.getElementById('popup');
-let saveBtn   = document.getElementById('saveBtn');
-let openBtn   = document.getElementById('openBtn');
-let okBtn     = document.getElementById('okBtn');
-let titleInput = document.getElementById('titleInput');
-let cancelBtn = document.getElementById('cancelBtn');
+
+
+$(function() {
+  $('.expand-icon').on('click', function() {
+    $(this)
+      .toggleClass('fa-eye')
+      .toggleClass('fa-eye-slash');
+  });
+});
+
+$(function() {
+  $('.fa-box-open').on('click', function() {
+    var sessionTitle = $(this).parent('div').find('span').first().text();
+    alert(sessionTitle);
+  });
+});
+
+$(function () {
+  $('.fa-copy').on('click', function() {
+    var urlText = $(this).parent('div').find('.url').text();
+    
+    var $temp = $("<input>");
+    $('body').append($temp);
+
+    $temp.val(urlText).select();
+    document.execCommand('copy');
+
+    $temp.remove();
+
+    alert("Copied the text: " + urlText);
+  });
+})
+
+
+let popup       = document.getElementById('popup');
+let saveBtn     = document.getElementById('saveBtn');
+let openBtn     = document.getElementById('openBtn');
+let okBtn       = document.getElementById('okBtn');
+let titleInput  = document.getElementById('titleInput');
+let cancelBtn   = document.getElementById('cancelBtn');
+let closeBtn   = document.getElementById('closeBtn');
+let sessionList = document.getElementById('sessionList');
+
 titleInput.style.display = 'none';
+sessionList.style.display = 'none';
+
 
 var sessionTitles = new Set();
 loadSessionTitles();
@@ -102,5 +141,19 @@ saveBtn.onclick = function () {
 };
 
 cancelBtn.onclick = function () {
+  window.close();
+}
+
+openBtn.onclick = function () {
+  saveBtn.style.display = 'none';
+  openBtn.style.display = 'none';
+
+  sessionList.style.display = 'block';
+
+  document.body.style.height = '500px';
+  document.body.style.width = '500px';
+}
+
+closeBtn.onclick = function () {
   window.close();
 }
