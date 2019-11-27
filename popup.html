@@ -19,7 +19,7 @@
     <button id="saveBtn" class="btn btn-primary btn-block">Save Current Tabs</button>
     <button id="cancelBtn" class="btn btn-primary btn-block">Cancel</button>
     <input id="titleInput" placeholder="Session Title" class="input-group"/>
-    <button id="openBtn" class="btn btn-link btn-block">View Saved Sessions</button>
+    <button id="viewBtn" class="btn btn-link btn-block">View Saved Sessions</button>
     <button id="okBtn" class="btn btn-primary btn-block">OK</button>
   </div>
   <div id="sessionList" class="list-group list-group-root well">
@@ -30,22 +30,22 @@
     
     <!-- Dynamically populate with list items -->
     <div class="list-group-item" >
-      <i class="fas fa-box-open"></i> 
+      <i class="fas fa-box-open"></i>
       <span class="session-title font-weight-bold">Some Title</span>
-      <i class="fas fa-trash-alt trash-icon"></i> 
+      <i class="fas fa-trash-alt trash-icon"></i>
       <i class="fas fa-eye expand-icon" data-toggle="collapse" data-target="#urlList1"></i>
     
       <div class="list-group url-list collapse" id="urlList1">
           <div class="list-group-item url-item" data-toggle="collapse">
-            <i class="fas fa-copy"></i> 
+            <i class="fas fa-copy"></i>
             <span class="url">https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css</span>
           </div>
           <div class="list-group-item url-item" data-toggle="collapse">
-            <i class="fas fa-copy"></i> 
+            <i class="fas fa-copy"></i>
             <span class="url">aaaahttps://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css</span>
           </div>
           <div class="list-group-item url-item" data-toggle="collapse">
-            <i class="fas fa-copy"></i> 
+            <i class="fas fa-copy"></i>
             <span class="url">bbbbhttps://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css</span>
           </div>
       </div>

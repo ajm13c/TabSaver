@@ -1,5 +1,20 @@
 
 
+let popup       = document.getElementById('popup');
+let saveBtn     = document.getElementById('saveBtn');
+let viewBtn     = document.getElementById('viewBtn');
+let okBtn       = document.getElementById('okBtn');
+let titleInput  = document.getElementById('titleInput');
+let cancelBtn   = document.getElementById('cancelBtn');
+let closeBtn   = document.getElementById('closeBtn');
+let sessionList = document.getElementById('sessionList');
+
+titleInput.style.display = 'none';
+sessionList.style.display = 'none';
+
+
+var sessionTitles = new Set();
+loadSessionTitles();
 
 $(function() {
   $('.expand-icon').on('click', function() {
@@ -13,6 +28,32 @@ $(function() {
   $('.fa-box-open').on('click', function() {
     var sessionTitle = $(this).parent('div').find('span').first().text();
     alert(sessionTitle);
+  });
+});
+
+// Delete session function
+$(function() {
+  $('.trash-icon').on('click', function() {
+    var sessionTitle = $(this).parent('div').find('span').first().text();
+    alert(sessionTitle);
+
+    chrome.storage.local.get({'sessions': []}, function (data) {
+      console.log(data);
+
+      newData = { 'sessions': [] };
+      data.sessions.forEach(element => {
+        if (! (element.title === sessionTitle) ) {
+          newData.sessions.push(element);
+        }
+      });
+
+      chrome.storage.local.set({'sessions': newData.sessions}, function () {
+        console.log('Updated list');
+        //need to update the html... just closing app for now. bad solution
+      });
+
+    });
+
   });
 });
 
@@ -31,23 +72,6 @@ $(function () {
     alert("Copied the text: " + urlText);
   });
 })
-
-
-let popup       = document.getElementById('popup');
-let saveBtn     = document.getElementById('saveBtn');
-let openBtn     = document.getElementById('openBtn');
-let okBtn       = document.getElementById('okBtn');
-let titleInput  = document.getElementById('titleInput');
-let cancelBtn   = document.getElementById('cancelBtn');
-let closeBtn   = document.getElementById('closeBtn');
-let sessionList = document.getElementById('sessionList');
-
-titleInput.style.display = 'none';
-sessionList.style.display = 'none';
-
-
-var sessionTitles = new Set();
-loadSessionTitles();
 
 function loadSessionTitles() {
   chrome.storage.local.get({'sessions': []}, function (data) {
@@ -127,8 +151,8 @@ okBtn.onclick = function () {
 saveBtn.onclick = function () {
   console.log('Save clicked.');
 
-  //hide the openBtn and show the title Input
-  openBtn.style.display = 'none';
+  //hide the viewBtn and show the title Input
+  viewBtn.style.display = 'none';
   titleInput.style.display = 'table-cell';
   okBtn.style.display = 'table-cell';
 
@@ -144,9 +168,9 @@ cancelBtn.onclick = function () {
   window.close();
 }
 
-openBtn.onclick = function () {
+viewBtn.onclick = function () {
   saveBtn.style.display = 'none';
-  openBtn.style.display = 'none';
+  viewBtn.style.display = 'none';
 
   sessionList.style.display = 'block';
 

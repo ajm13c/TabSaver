@@ -27,7 +27,7 @@ body {
   border-radius: 0px;
 }
 
-#openBtn {
+#viewBtn {
   height: 50px;
   margin: auto;
   display: table-cell;
@@ -103,4 +103,7 @@ body {
   max-width: 80%;
   word-break: break-all;
   word-wrap: break-word;
+}
+.url-item > i:hover {
+  color: rgb(0, 140, 255);
 }
